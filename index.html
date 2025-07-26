@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="styles.css" />
+
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1>My Todo List</h1>
+        <div id="addTodo"><button>Add Todo</button></div>
+      </div>
+      <div id="sidebar">
+        <h2>Tasks</h2>
+        <div id="when">
+          <li class="when">
+            <div class="calendar today">
+              <img src="images/calendar.png" alt="" /> Today
+            </div>
+          </li>
+          <li class="when">
+            <div class="calendar">
+              <img src="images/calendar.png" alt="" /> This Week
+            </div>
+          </li>
+          <li class="when">
+            <div class="calendar">
+              <img src="images/calendar.png" alt="" /> This Month
+            </div>
+          </li>
+          <li class="when overdue">
+            <div class="calendar">
+              <img src="images/calendar.png" alt="" /> Overdue
+            </div>
+          </li>
+        </div>
+        <div id="projects">
+          <h2>Projects</h2>
+
+          <li class="project-item">
+            <div class="home">Home</div>
+          </li>
+          <li class="project-item">
+            <div class="work">Work</div>
+          </li>
+          <li class="project-item">
+            <div class="workout">Workout</div>
+          </li>
+        </div>
+        <div id="new-projects">
+          New Project<button id="projects-btn">+</button>
+        </div>
+      </div>
+      <div id="modal-backdrop"></div>
+      <div id="main">
+        <form class="form" id="todo-modal">
+          <h1 class="form">ADD NEW TASK</h1>
+          <div class="form">
+            <label for="title">Title</label
+            ><input name="title" id="title" type="text" required />
+          </div>
+          <div class="form">
+            <label for="description">Description</label
+            ><input name="description" id="description" type="text" />
+          </div>
+          <div class="form">
+            <label for="date">Due date</label
+            ><input
+              name="date"
+              id="date"
+              type="date"
+              placeholder=" DD/MM/YYYY"
+              required
+            />
+          </div>
+          <div class="form" id="project-form">
+            <label for="project">Project</label
+            ><select name="project" id="project" type="text" required>
+              <option value="New Project">New Project</option>
+              <option value="Home">Home</option>
+              <option value="Work">Work</option>
+              <option value="Workout">Workout</option>
+            </select>
+          </div>
+          <div class="form">
+            <label for="priority">Priority</label
+            ><select name="priority" id="priority" type="text" required>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div id="btns">
+            <button type="submit" class="btnS">Create Task</button
+            ><button type="reset" class="btnC">Cancel</button>
+          </div>
+        </form>
+        <form action="#" method="GET" id="project-modal">
+          <input
+            type="text"
+            id="project-name"
+            placeholder="Project name"
+            required
+          />
+
+          <button type="submit" id="submit-project">CREATE PROJECT</button>
+        </form>
+      </div>
+      <div id="footer">Created by Sorri Darbo</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

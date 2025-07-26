@@ -1,0 +1,551 @@
+@import "modern-normalize";
+
+:root {
+  line-height: 1.5;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul {
+  margin: 0;
+}
+
+ol[role="list"],
+ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+}
+
+#wrapper {
+  height: 100vh;
+  border: 1px solid #fff;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar main"
+    "footer footer";
+  grid-template-rows: auto 1fr 1fr auto;
+  grid-template-columns: 28rem 1fr;
+}
+
+#header {
+  background-color: #000;
+  grid-area: header;
+  font-size: 3.2rem;
+  padding: 2rem;
+  border: 1px solid #fff;
+}
+
+#addTodo {
+  background-color: #000;
+  grid-area: header;
+  font-size: 2.2rem;
+  padding: 0 2rem;
+}
+#sidebar {
+  background-color: #111;
+  padding: 1rem;
+  grid-area: sidebar;
+  box-shadow: 12px 12px 32px 0 rgba(200, 200, 200, 0.35);
+}
+
+#sidebar > h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 900px;
+  padding: 1rem;
+}
+
+#main {
+  grid-area: main;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto 0.5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+#footer {
+  background-color: #222;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  grid-area: footer;
+}
+
+#when {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.8rem;
+  list-style-type: none;
+}
+
+.project-item {
+  text-align: left;
+  padding: 3rem 0rem 0rem 6rem;
+  font-size: 1.8rem;
+  list-style-type: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar > button {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.when:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+
+.overdue {
+  color: red;
+}
+
+#when > li {
+  padding: 1rem;
+}
+
+.calendar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calendar > img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.today {
+  padding-right: 3rem;
+}
+
+#addTodo {
+  display: flex;
+  justify-content: right;
+}
+
+#addTodo > button {
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(90deg, #a259ff 0%, #6a11cb 100%);
+  border: none;
+  border-radius: 28px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px 0 rgba(162, 89, 255, 0.25),
+    0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+#addTodo > button:hover {
+  cursor: pointer;
+  background: linear-gradient(90deg, #6a11cb 0%, #a259ff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(162, 89, 255, 0.35),
+    0 4px 16px 0 rgba(0, 0, 0, 0.15);
+}
+
+#header h1 {
+  text-shadow: 0 4px 24px #a259ff, 0 2px 8px #fff, 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#addTodo > button,
+#sidebar > button {
+  /* ...altre proprietà... */
+  transition: background 0.25s, color 0.2s, transform 0.15s, box-shadow 0.25s;
+}
+
+#sidebar h2 {
+  border-bottom: 1px solid #fff;
+  width: 14rem;
+}
+
+#form {
+  border: 1px solid #fff;
+  padding: 1rem;
+  margin-top: 5rem;
+  font-size: 2.2rem;
+}
+
+.form {
+  width: 500px;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#form > h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+#btns {
+  justify-content: center;
+  gap: 1rem;
+  padding: 0px;
+}
+
+.btn {
+  align-content: center;
+  background-color: #a259ff;
+  color: #fff;
+  font-size: 1.8rem;
+  margin: 1rem 0.6rem;
+  padding: 0.5rem;
+}
+
+#project-modal {
+  display: none;
+  justify-content: center;
+  border: 1px solid #fff;
+  align-content: center;
+  padding: 4rem 2rem;
+  z-index: 20;
+}
+
+#todo-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  background-color: #fefefe;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(162, 89, 255, 0.25),
+    0 4px 16px 0 rgba(0, 0, 0, 0.15);
+  min-width: 320px;
+  max-width: 95vw;
+  min-height: 120px;
+  max-height: 90vh;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #a259ff;
+  color: #111;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#project-modal > button {
+  margin-top: 2rem;
+  background-color: purple;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px 0 rgba(162, 89, 255, 0.25),
+    0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+
+#project-modal > input {
+  padding: 1rem;
+  box-shadow: 0 6px 18px 0 rgba(162, 89, 255, 0.28),
+    0 2px 8px 0 rgba(0, 0, 0, 0.13);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.form h1 {
+  color: purple;
+  font-weight: 700;
+}
+
+.todo-item {
+  display: flex;
+  width: 100%;
+  min-width: 90rem;
+  box-sizing: border-box;
+  padding: 1rem 1rem;
+  background: #181818;
+  border: 1px solid #fff;
+  gap: 1rem;
+  z-index: 0;
+}
+
+.todo-title {
+  flex: 2 1 0;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.todo-date {
+  flex: 0 0 110px; /* colonna fissa ma adattabile */
+  min-width: 80px;
+  max-width: 140px;
+  text-align: left;
+  white-space: nowrap;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.btn-edit {
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.btn-edit:hover {
+  background-color: #222;
+  box-shadow: 0 0.5px 4px rgba(162, 89, 255, 0.15);
+  transform: translateY(-2px) scale(1.08);
+}
+
+.btn-edit:hover img {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+  background: #222;
+  border-radius: 4px;
+  transition: outline 0.2s;
+}
+
+.btn-delete img {
+  width: 20px;
+  height: 20px;
+}
+
+#todo-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.btn-edit,
+.btn-delete {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit img,
+.btn-delete img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+#todo-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 1rem;
+  flex: 1 1 0;
+}
+
+.btn-delete:hover {
+  background-color: #222;
+  box-shadow: 0 0.2px 4px rgba(255, 77, 77, 0.3);
+  transform: translateY(-2px) scale(1);
+}
+
+.btn-delete:hover img {
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+/* Overlay per blur dietro il modal */
+#modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10; /* sotto il modal, sopra il resto */
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: opacity 0.2s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modal-backdrop.active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#projects {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 900px;
+  padding: 1rem;
+}
+
+#new-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 18rem;
+  width: 100%;
+  margin: 3rem auto 0.5rem auto;
+  padding: 0.6rem 0.3rem;
+  background: linear-gradient(90deg, #a259ff 0%, #6a11cb 100%);
+  border-radius: 14px;
+  box-shadow: 0 1px 4px 0 rgba(162, 89, 255, 0.12);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+}
+
+#projects-btn {
+  background: #fff;
+  color: #6a11cb;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 4px 0 rgba(162, 89, 255, 0.12);
+  transition: background 0.18s, color 0.18s, transform 0.12s, box-shadow 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+#projects-btn:hover {
+  background: #e0c3fc;
+  color: #6a11cb;
+  transform: scale(1.15) rotate(12deg);
+  box-shadow: 0 2px 8px 0 rgba(162, 89, 255, 0.22);
+  cursor: pointer;
+}
+
+.project-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 32px; /* assicura che le icone siano centrate */
+}
+
+.project-row > div:first-child {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.p-btn-edit,
+.p-btn-delete {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, background 0.2s, transform 0.15s;
+  background: #222;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 rgba(162, 89, 255, 0.12);
+}
+
+.project-row:hover .p-btn-edit,
+.project-row:hover .p-btn-delete {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.p-btn-edit img,
+.p-btn-delete img {
+  width: 18px;
+  height: 18px;
+  filter: grayscale(0.2);
+  transition: filter 0.2s;
+  margin: 0;
+  padding: 0;
+}
+
+.p-btn-edit:hover,
+.p-btn-delete:hover {
+  background: #a259ff;
+  box-shadow: 0 4px 16px 0 rgba(162, 89, 255, 0.22);
+  transform: scale(1.1);
+}
+
+.p-btn-edit:hover img,
+.p-btn-delete:hover img {
+  filter: brightness(1.2) drop-shadow(0 0 4px #fff);
+}
+
+#project-icons {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.project-row {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
