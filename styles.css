@@ -585,3 +585,8 @@ body {
 .project-item {
   cursor: pointer;
 }
+
+#projrct-modal-btns {
+  display: grid;
+  gap: 1rem;
+}

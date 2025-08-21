@@ -1,26 +1,23 @@
+"use strict";
+
 // ========================================
 //  DOM ELEMENTS
 // ========================================
 const main = document.getElementById("main");
 const addTodo = document.getElementById("addTodo");
 const toDoModal = document.getElementById("todo-modal");
-const cancelTodo = document.querySelector(".btnC");
 const createProjectBtn = document.querySelector("#projects-btn");
-const submitProject = document.getElementById("submit-project");
 const projectModal = document.getElementById("project-modal");
 const projects = document.getElementById("projects");
 const modalBackdrop = document.getElementById("modal-backdrop");
 const sidebar = document.getElementById("sidebar");
-const when = document.querySelectorAll(".when");
-const calendar = document.querySelector(".calendar");
+const whenFilters = document.querySelectorAll(".when");
 const today = document.querySelector(".today");
 const thisWeek = document.querySelector(".thisWeek");
 const thisMonth = document.querySelector(".thisMonth");
 const overdue = document.querySelector(".overdue");
 const completed = document.querySelector("#completed-projects");
 const all = document.querySelector(".all");
-const projectItems = document.querySelectorAll(".project-item");
-const projectRow = document.querySelectorAll(".project-row");
 
 // Variable to track if we're editing something
 let editingId = null;
@@ -439,9 +436,10 @@ function handleProjectClick(e) {
 
   // Third: Get the project name
   let projectName;
+  let projectId;
 
   if (projectItem.getAttribute("data-id")) {
-    const projectId = projectItem.getAttribute("data-id");
+    projectId = projectItem.getAttribute("data-id");
     const projectsArr = getAllProjectsFromStorage();
     const project = projectsArr.find((p) => p.id === projectId);
     projectName = project.title;
@@ -522,7 +520,7 @@ function displayAllTodos() {
 
 // Set up filtering - call this ONCE when app starts
 function setupDateFiltering() {
-  when.forEach((w) => {
+  whenFilters.forEach((w) => {
     w.addEventListener("click", function (e) {
       const todos = getAllTodosFromStorage(); // Get fresh data
       const now = new Date();
@@ -604,7 +602,7 @@ function setupDateFiltering() {
           }
         });
       } else if (e.target.closest("#completed-projects")) {
-        [today, thisWeek, thisMonth].forEach((el) =>
+        [today, thisWeek, thisMonth, overdue].forEach((el) =>
           el.classList.remove("active")
         );
         console.log("About to toggle completed class"); // Debug 4
@@ -617,24 +615,6 @@ function setupDateFiltering() {
         completedTodos.forEach((todo) => {
           main.insertAdjacentHTML("beforeend", createTodoHTML(todo));
         });
-
-        console.log("Completed");
-      } else if (e.target.closest("#completed-projects")) {
-        [today, thisWeek, thisMonth].forEach((el) =>
-          el.classList.remove("active")
-        );
-        console.log("About to toggle completed class"); // Debug 4
-        completed.classList.toggle("active");
-
-        main.innerHTML = "";
-        const completedTodos = todos.filter((todo) => todo.completed === true);
-        console.log("Found completed todos:", completedTodos.length); // Debug 6
-
-        completedTodos.forEach((todo) => {
-          main.insertAdjacentHTML("beforeend", createTodoHTML(todo));
-        });
-
-        console.log("Completed");
       }
     });
   });
